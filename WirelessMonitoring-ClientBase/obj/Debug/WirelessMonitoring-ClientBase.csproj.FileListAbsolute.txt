@@ -1,0 +1,7 @@
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\WirelessMonitoring-ClientBase\bin\Debug\WirelessMonitoring-ClientBase.exe.config
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\WirelessMonitoring-ClientBase\bin\Debug\WirelessMonitoring-ClientBase.exe
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\WirelessMonitoring-ClientBase\bin\Debug\WirelessMonitoring-ClientBase.pdb
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\WirelessMonitoring-ClientBase\obj\Debug\WirelessMonitoring-ClientBase.csprojAssemblyReference.cache
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\WirelessMonitoring-ClientBase\obj\Debug\WirelessMonitoring-ClientBase.csproj.CoreCompileInputs.cache
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\WirelessMonitoring-ClientBase\obj\Debug\WirelessMonitoring-ClientBase.exe
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\WirelessMonitoring-ClientBase\obj\Debug\WirelessMonitoring-ClientBase.pdb
