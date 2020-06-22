@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WirelessMonitoring-ClientBase", "WirelessMonitoring-ClientBase\WirelessMonitoring-ClientBase.csproj", "{B642924C-B254-47A4-A812-4B72ECDB412B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B642924C-B254-47A4-A812-4B72ECDB412B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B642924C-B254-47A4-A812-4B72ECDB412B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B642924C-B254-47A4-A812-4B72ECDB412B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B642924C-B254-47A4-A812-4B72ECDB412B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A99171C-793B-4A38-8546-C0E477E243A1}
+	EndGlobalSection
+EndGlobal
