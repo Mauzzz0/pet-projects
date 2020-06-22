@@ -16,7 +16,7 @@ namespace WirelessMonitoring
         const int server_port = 8005;
         const string server_ip = "192.168.1.68";
 
-        static string cpu_name, cpu_cores, cpu_threads,cpu_percent, pc_name, ram_total, ram_available;
+        static string cpu_name, cpu_cores, cpu_threads, cpu_percent, pc_name, ram_total, ram_available;
         static int screen_height, screen_width;
         static double ram_percent;
         public delegate void UpdateTBCallback(int key,string text);
@@ -60,6 +60,7 @@ namespace WirelessMonitoring
             {
                 MessageBox.Show(ex.Message);
                 // Server is turned off
+                listenSocket.Close();
             }
         }
         
