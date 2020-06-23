@@ -1,0 +1,14 @@
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\bin\Debug\netstandard2.0\MobileClient.deps.json
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\bin\Debug\netstandard2.0\MobileClient.dll
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\bin\Debug\netstandard2.0\ref\MobileClient.dll
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\bin\Debug\netstandard2.0\MobileClient.pdb
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\MobileClient.csprojAssemblyReference.cache
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\MobileClient.AssemblyInfoInputs.cache
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\MobileClient.AssemblyInfo.cs
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\MobileClient.csproj.CoreCompileInputs.cache
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\MobileClient.dll
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\ref\MobileClient.dll
+C:\Users\rusla\source\repos\WirelessMonitoring-ClientBase\MobileClient\MobileClient\obj\Debug\netstandard2.0\MobileClient.pdb
