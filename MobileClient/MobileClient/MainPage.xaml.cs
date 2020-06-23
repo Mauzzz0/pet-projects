@@ -16,17 +16,14 @@ namespace MobileClient
     public partial class MainPage : ContentPage
     {
         static internal MainPage instance { get; set; }
-        static bool isConnected = false;
         public MainPage()
         {
             instance = this;
             InitializeComponent();
         }
 
-        private async void ButtonConnect_Click(object sender, EventArgs e)
+        private void ButtonConnect_Click(object sender, EventArgs e)
         {
-            if (isConnected == false)
-            {
                 Program.Start();
                 //Thread thrd = new Thread(Program.Start);
                 //thrd.Start();
@@ -35,8 +32,29 @@ namespace MobileClient
                 //label1.Text = "1 second passed";
                 //await Task.Delay(2000);
                 //label1.Text = "2 more seconds passed";
-                isConnected = true;
-            }
+                ButtonDisconnect.IsEnabled = true;
+                ButtonConnect.IsEnabled = false;
+        }
+
+        private void ButtonDisconnect_Click(object sender, EventArgs e)
+        {
+            Program.Close();
+            ButtonDisconnect.IsEnabled = false;
+        }
+
+        private void Power_Click(object sender, EventArgs e)
+        {
+            Program.SendMessage("POWER");
+        }
+
+        private void Reboot_Click(object sender, EventArgs e)
+        {
+            Program.SendMessage("REBOOT");
+        }
+
+        private void Sleep_Click(object sender, EventArgs e)
+        {
+            Program.SendMessage("SLEEP");
         }
 
         internal static void changeLabels(string[] infos)
@@ -45,22 +63,25 @@ namespace MobileClient
             string cpu_cores = infos[1];
             string cpu_threads = infos[2];
             string pc_name = infos[3];
-            string ram_total = infos[4];
-            string ram_available = infos[5];
+            string _ram_total = infos[4];
+            string _ram_available = infos[5];
             string screen_height = infos[6];
             string screen_width = infos[7];
-            string ram_percent = infos[8];
+            string ram_percent = infos[8].Replace('.',',');
             string cpu_percent = infos[9];
 
-            instance.label1.Text =  ram_percent;
+            double ram_total = Convert.ToDouble(Convert.ToInt64(_ram_total) / (double)1024 / 1024);
+            double ram_available = Convert.ToDouble(Convert.ToInt64(_ram_available) / (double)1024 / 1024);
+
+            //instance.label1.Text = Convert.ToString(Math.Round(Convert.ToDouble(ram_percent), 2)) + "%";
             instance.Cpu_name.Text =  cpu_name;
             instance.Cpu_cores.Text = cpu_cores;
             instance.Cpu_threads.Text = cpu_threads;
-            instance.Cpu_percent.Text = cpu_percent;
+            instance.Cpu_percent.Text = cpu_percent+"%";
             instance.Pc_name.Text = pc_name;
-            instance.Ram_Available.Text = ram_available;
-            instance.Ram_total.Text = ram_total;
-            instance.Ram_percent.Text = ram_percent;
+            instance.Ram_Available.Text = Convert.ToString(Math.Round(ram_available,2)+ " Gbytes");
+            instance.Ram_total.Text = Convert.ToString(Math.Round(ram_total,2)+ " Gbytes");
+            instance.Ram_percent.Text = Convert.ToString(Math.Round(Convert.ToDouble(ram_percent)*100, 2)) + "%";
             instance.Screen_height.Text = screen_height;
             instance.Screen_width.Text = screen_width;
         }
