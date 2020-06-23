@@ -27,10 +27,10 @@
         <!--<Label x:FieldModifier="public" Grid.Column="0" Grid.Row="0" BackgroundColor="Gray" Text=""/>-->
         <Label x:Name="label1"  x:FieldModifier="public" Grid.Column="0" Grid.Row="1"/>
         <Label x:FieldModifier="public" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="Gray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" Text="CPU"/>
-        <Label x:Name="Cpu_percent" x:FieldModifier="public" Grid.Column="0" Grid.Row="3" BackgroundColor="Gray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="cpu_percent"/>
+        <Label x:Name="Cpu_percent" x:FieldModifier="public" Grid.Column="0" Grid.Row="3" BackgroundColor="LightGray" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="cpu_percent"/>
         <Label x:FieldModifier="public" Grid.Column="0" Grid.Row="4" Text=""/>
         <Label x:FieldModifier="public" Grid.Column="0" Grid.Row="5" BackgroundColor="Gray" Text="RAM" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-        <Label x:Name="Ram_percent"  x:FieldModifier="public" Grid.Column="0" Grid.Row="6" BackgroundColor="Gray" Text="ram_percent" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Label x:Name="Ram_percent"  x:FieldModifier="public" Grid.Column="0" Grid.Row="6" BackgroundColor="LightGray" Text="ram_percent" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Label x:FieldModifier="public" Grid.Column="0" Grid.Row="7" Text=""/>
         <Label x:FieldModifier="public" Grid.Column="0" Grid.Row="8" BackgroundColor="Gray" Text="Monitor" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Label x:FieldModifier="public" Grid.Column="0" Grid.Row="9" Text=""/>
@@ -49,7 +49,7 @@
         <Label x:Name="Cpu_name" x:FieldModifier="internal" Grid.Column="2" Grid.Row="2" BackgroundColor="Gray" FontAttributes="Bold" FontSize="14" Text="cpu_name" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
         <Label x:Name="Cpu_threads" x:FieldModifier="internal" Grid.Column="2" Grid.Row="3" BackgroundColor="Gray" Text="cpu_threads" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Label x:FieldModifier="internal" Grid.Column="2" Grid.Row="4" Text=""/>
-        <Label x:Name="Ram_Available" x:FieldModifier="internal" Grid.Column="2" Grid.Row="5" BackgroundColor="Gray" Text="ram_available" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Label x:Name="Ram_Available" x:FieldModifier="internal" Grid.Column="2" Grid.Row="5" BackgroundColor="LightGray" Text="ram_available" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Label x:Name="Ram_total" x:FieldModifier="internal" Grid.Column="2" Grid.Row="6" BackgroundColor="Gray" Text="ram_total" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Label x:FieldModifier="internal" Grid.Column="2" Grid.Row="7" Text=""/>
         <Label x:Name="Screen_height" x:FieldModifier="internal" Grid.Column="2" Grid.Row="8" BackgroundColor="Gray" Text="screen_height" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
