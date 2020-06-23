@@ -31,12 +31,18 @@ namespace WirelessMonitoring
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Thread thrd = new Thread(Start);
+            Thread thrd = new Thread(new ParameterizedThreadStart(Start));
             thrd.Start();
+            ButtonON.IsEnabled = false;
+            ButtonOFF.IsEnabled = true;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            Start(1);
+            ButtonOFF.IsEnabled = false;
+            ChangeServerTB(0);
+            ChangeClientTB(0);
         }
         
         static internal void ChangeServerTB(int key)
