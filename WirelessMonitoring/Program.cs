@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows;
@@ -21,7 +18,7 @@ namespace WirelessMonitoring
         static Socket handler;
         static Socket listenSocket;
         const int server_port = 8005;
-        const string server_ip = "192.168.1.68";
+        static string server_ip = Dns.GetHostByName(Dns.GetHostName()).AddressList[0].ToString();
 
         static string cpu_name, cpu_cores, cpu_threads, cpu_percent, pc_name, ram_total, ram_available, ram_percent;
         static string screen_height, screen_width;
