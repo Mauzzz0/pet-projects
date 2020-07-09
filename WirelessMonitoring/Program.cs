@@ -75,7 +75,6 @@ namespace WirelessMonitoring
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 // Server is turned off
                 listenSocket.Close();
                 handler.Close();
