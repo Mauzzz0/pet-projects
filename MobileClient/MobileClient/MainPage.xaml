@@ -58,7 +58,9 @@
         <Button x:FieldModifier="internal" Grid.Column="1" Grid.Row="10" Text="REBOOT" Clicked="Reboot_Click"/>
         <Button x:FieldModifier="internal" Grid.Column="2" Grid.Row="10" Text="SLEEP" Clicked="Sleep_Click"/>
         <Label x:FieldModifier="internal" Grid.Column="0" Grid.Row="11" Text=""/>
-        <Button x:Name="ButtonConnect" Grid.Column="0" Grid.Row="11" Text="CONNECT" Clicked="ButtonConnect_Click" />
+        <Button x:Name="ButtonConnect" Grid.Column="0" Grid.Row="11" Text="CONNECT" Clicked="ButtonConnect_Click" IsEnabled="false"/>
         <Button x:Name="ButtonDisconnect" Grid.Column="1" Grid.Row="11" Text="DISCONNECT" Clicked="ButtonDisconnect_Click" IsEnabled="false" />
+        <Button x:Name="IPserver" Grid.Column="2" Grid.Row="11" Text="IPserver" Clicked="InputIP"/>
+        <Entry x:Name="IPinput" TextColor="Black" x:FieldModifier="public" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Text="Enter ip address here" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
     </Grid>
 </ContentPage>

@@ -57,16 +57,24 @@ namespace MobileClient
             Program.SendMessage("SLEEP");
         }
 
+        private void InputIP(object sender, EventArgs e)
+        {
+            ((Button)sender).IsEnabled = false;
+            IPinput.IsEnabled = false;
+            ButtonConnect.IsEnabled = true;
+            Program.address = IPinput.Text;
+        }
+
         internal static void changeLabels(string[] infos)
         {
             string cpu_name = infos[0];
-            string cpu_cores = infos[1];
-            string cpu_threads = infos[2];
+            string cpu_cores = infos[1]+" Cores";
+            string cpu_threads = infos[2]+" Threads";
             string pc_name = infos[3];
             string _ram_total = infos[4];
             string _ram_available = infos[5];
-            string screen_height = infos[6];
-            string screen_width = infos[7];
+            string screen_height = infos[6]+" vert";
+            string screen_width = infos[7]+" hor";
             string ram_percent = infos[8].Replace('.',',');
             string cpu_percent = infos[9];
 

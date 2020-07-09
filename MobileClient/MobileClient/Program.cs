@@ -12,7 +12,7 @@ namespace MobileClient
     class Program
     {
         static int port = 8005;
-        static string address = "192.168.1.68";
+        static internal string address;
         static string cpu_name, cpu_cores, cpu_threads, cpu_percent, pc_name, ram_total, ram_available, ram_percent;
         static string screen_height, screen_width;
         static Socket socket;
