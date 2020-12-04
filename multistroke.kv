@@ -1,0 +1,47 @@
+#:kivy 1.11.1
+<MainMenu>:
+    rows: 1
+    size_hint: (1, None)
+    #height: 50
+    spacing: 3
+    padding: 3
+    ToggleButton:
+        id: btn1
+        group: 'mainmenu'
+        background_normal: "200x200.png"
+        background_down: "reve.png"
+        on_press:
+            app.manager.current = 'screen1'
+            if self.state == 'normal': self.state = 'down'
+    ToggleButton:
+        id: btn2
+        group: 'mainmenu'
+        background_normal: "200x200.png"
+        background_down: "reve.png"
+        on_press:
+            app.manager.current = 'screen2'
+            if self.state == 'normal': self.state = 'down'
+    ToggleButton:
+        id: btn3
+        group: 'mainmenu'
+        background_normal: "200x200.png"
+        background_down: "reve.png"
+        on_press:
+            app.manager.current = 'screen3'
+            if self.state == 'normal': self.state = 'down'
+    ToggleButton:
+        id: btn4
+        group: 'mainmenu'
+        background_normal: "200x200.png"
+        background_down: "reve.png"
+        on_press:
+            app.manager.current = 'screen4'
+            if self.state == 'normal': self.state = 'down'
+    ToggleButton:
+        id: btn5
+        group: 'mainmenu'
+        background_normal: "200x200.png"
+        background_down: "reve.png"
+        on_press:
+            app.manager.current = 'screen5'
+            if self.state == 'normal': self.state = 'down'
