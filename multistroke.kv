@@ -12,12 +12,22 @@
         if self.state == 'normal': self.state = 'down'
 
 
+<Background_white_gridlayout>:
+    cols: 1
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
 <MainMenu>:
     rows: 1
     size_hint: (1, None)
     #height: 50
     #spacing: 3
-    padding: 3
+    #padding: 3
     MainButton:
         id: btn1
         background_normal: ".notforgit/svg/news.png"
@@ -66,8 +76,46 @@
     name: "screen4"
     Label:
         text: "LABEL SCREEN4 in .kv"
+
+
 <Screen_more>:
     name: "screen5"
-    Label:
-        text: "LABEL SCREEN5 in .kv"
-
+    GridLayout:
+        rows: 3
+        AnchorLayout:
+            anchor_y: 'top'
+            anchor_x: 'center'
+            BoxLayout:
+                size_hint: 1,None
+                height: 270
+                spacing: 5
+                orientation: "vertical"
+                Label:
+                    height: 50
+                    size_hint: 1,None
+                    color: 0,0,0,1
+                    text: "empty space for neck. y: 50px"
+                Button:
+                    text: "btn1"
+                    size_hint: 1,None
+                    height: 50
+                    background_normal: ".notforgit/svg/bluebutton.png"
+                Button:
+                    text: "btn2"
+                    size_hint: 1,None
+                    height: 50     
+                Button:
+                    text: "btn3"
+                    size_hint: 1,None
+                    height: 50  
+                Button:
+                    text: "btn4"
+                    size_hint: 1,None
+                    height: 50    
+        Button:
+            size_hint: (1,0.5)
+            text: "empty space"     
+        Button:
+            size_hint: (1,0.33)
+            text: "SPONSORS.png"
+    

@@ -25,6 +25,8 @@ class Screen_schedule(Screen):
     pass
 class Screen_more(Screen):
     pass
+class Background_white_gridlayout(GridLayout):
+    pass
 
 
 
@@ -59,7 +61,7 @@ class MultistrokeApp(App):
         self.manager.add_widget(Screen_more())
         self.Screen_more = Screen_more()
         
-        layout = GridLayout(cols=1)
+        layout = Background_white_gridlayout()
         layout.add_widget(self.manager)
         layout.add_widget(MainMenu())
         return layout
