@@ -6,12 +6,24 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.layout import Layout
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
-import kivy.properties as kyprops
+from kivy.graphics import Rectangle
+#from kivy.core.window import Window
+#Window.size = (540,960)
 from kivy.config import Config
 Config.set('graphics','width', 540)
 Config.set('graphics','height', 960)
 
 class MainMenu(GridLayout):
+    pass
+class Screen_news(Screen):
+    pass
+class Screen_league(Screen):
+    pass
+class Screen_user(Screen):
+    pass
+class Screen_schedule(Screen):
+    pass
+class Screen_more(Screen):
     pass
 
 
@@ -25,39 +37,27 @@ class MultistrokeApp(App):
 
 
         # Screen1
-        screen1_w = Label(text="LABEL SCREEN1")
-        screen1 = Screen(name='screen1')
-        screen1.add_widget(screen1_w)
-        self.manager.add_widget(screen1)
-        self.screen1 = screen1
+        self.manager.add_widget(Screen_news())
+        self.Screen_news = Screen_news()
 
         # Screen2
-        screen2_w = Label(text="LABEL SCREEN2")
-        screen2 = Screen(name='screen2')
-        screen2.add_widget(screen2_w)
-        self.manager.add_widget(screen2)
-        self.screen2 = screen2
+        self.manager.add_widget(Screen_league())
+        self.Screen_league = Screen_league()
 
         # Screen3
-        screen3_w = Label(text="LABEL SCREEN3")
-        screen3 = Screen(name='screen3')
-        screen3.add_widget(screen3_w)
-        self.manager.add_widget(screen3)
-        self.screen3 = screen3
+        self.manager.add_widget(Screen_user())
+        self.Screen_user = Screen_user()
 
         # Screen4
-        screen4_w = Label(text="LABEL SCREEN4")
-        screen4 = Screen(name='screen4')
-        screen4.add_widget(screen4_w)
-        self.manager.add_widget(screen4)
-        self.screen4 = screen4
+        self.manager.add_widget(Screen_schedule())
+        self.Screen_schedule = Screen_schedule()
 
         # Screen5
-        screen5_w = Label(text="LABEL SCREEN5")
-        screen5 = Screen(name='screen5')
-        screen5.add_widget(screen5_w)
-        self.manager.add_widget(screen5)
-        self.screen5 = screen5
+        #screen5_w = Label(text="LABEL SCREEN5") # Adding widgets to screen5
+        #screen5.add_widget(screen5_w)
+        #screen5 = Screen_more() # Может быть излишество
+        self.manager.add_widget(Screen_more())
+        self.Screen_more = Screen_more()
         
         layout = GridLayout(cols=1)
         layout.add_widget(self.manager)

@@ -1,47 +1,73 @@
 #:kivy 1.11.1
+<MainButton@ToggleButton>:
+    group: "mainmenu"
+    canvas.before:
+        Color:
+            #rgba: 4,14,51,1 # real
+            rgb: (0.01,0.05,0.2) # real divided by 255
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    on_press:
+        if self.state == 'normal': self.state = 'down'
+
+
 <MainMenu>:
     rows: 1
     size_hint: (1, None)
     #height: 50
-    spacing: 3
+    #spacing: 3
     padding: 3
-    ToggleButton:
+    MainButton:
         id: btn1
-        group: 'mainmenu'
         background_normal: ".notforgit/svg/news.png"
         background_down: ".notforgit/svg/news-1.png"
         on_press:
             app.manager.current = 'screen1'
-            if self.state == 'normal': self.state = 'down'
-    ToggleButton:
+    MainButton:
         id: btn2
-        group: 'mainmenu'
         background_normal: ".notforgit/svg/league.png"
         background_down: ".notforgit/svg/league-1.png"
         on_press:
             app.manager.current = 'screen2'
-            if self.state == 'normal': self.state = 'down'
-    ToggleButton:
+    MainButton:
         id: btn3
-        group: 'mainmenu'
         background_normal: ".notforgit/svg/user.png"
         background_down: ".notforgit/svg/user-1.png"
         on_press:
             app.manager.current = 'screen3'
-            if self.state == 'normal': self.state = 'down'
-    ToggleButton:
+    MainButton:
         id: btn4
-        group: 'mainmenu'
         background_normal: ".notforgit/svg/schedule.png"
         background_down: ".notforgit/svg/schedule-1.png"
         on_press:
             app.manager.current = 'screen4'
-            if self.state == 'normal': self.state = 'down'
-    ToggleButton:
+    MainButton:
         id: btn5
-        group: 'mainmenu'
         background_normal: ".notforgit/svg/more.png"
         background_down: ".notforgit/svg/more-1.png"
         on_press:
             app.manager.current = 'screen5'
-            if self.state == 'normal': self.state = 'down'
+
+
+<Screen_news>:
+    name: "screen1"
+    Label:
+        text: "LABEL SCREEN1 in .kv"
+<Screen_league>:
+    name: "screen2"
+    Label:
+        text: "LABEL SCREEN2 in .kv"
+<Screen_user>:
+    name: "screen3"
+    Label:
+        text: "LABEL SCREEN3 in .kv"
+<Screen_schedule>:
+    name: "screen4"
+    Label:
+        text: "LABEL SCREEN4 in .kv"
+<Screen_more>:
+    name: "screen5"
+    Label:
+        text: "LABEL SCREEN5 in .kv"
+
