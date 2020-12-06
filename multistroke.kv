@@ -11,6 +11,13 @@
     on_press:
         if self.state == 'normal': self.state = 'down'
 
+<MoreButton@Button>:
+    group: "moregroup"
+    pos_hint: {'center_x': 0.5}
+    size_hint: 0.9,None
+    height: 50
+    font_size: 20
+
 
 <Background_white_gridlayout>:
     cols: 1
@@ -63,59 +70,75 @@
 <Screen_news>:
     name: "screen1"
     Label:
+        color: 0,0,0,1
         text: "LABEL SCREEN1 in .kv"
 <Screen_league>:
     name: "screen2"
     Label:
+        color: 0,0,0,1
         text: "LABEL SCREEN2 in .kv"
 <Screen_user>:
     name: "screen3"
     Label:
+        color: 0,0,0,1
         text: "LABEL SCREEN3 in .kv"
 <Screen_schedule>:
     name: "screen4"
     Label:
+        color: 0,0,0,1
         text: "LABEL SCREEN4 in .kv"
 
 
 <Screen_more>:
     name: "screen5"
     GridLayout:
-        rows: 3
+        rows: 2
         AnchorLayout:
             anchor_y: 'top'
             anchor_x: 'center'
             BoxLayout:
-                size_hint: 1,None
-                height: 270
-                spacing: 5
+                size: root.size
+                #size_hint: 1,None
+                #height: 270
+                spacing: 10
                 orientation: "vertical"
                 Label:
+                    pos_hint: {'center_x': 0.5}
                     height: 50
                     size_hint: 1,None
                     color: 0,0,0,1
                     text: "empty space for neck. y: 50px"
-                Button:
-                    text: "btn1"
-                    size_hint: 1,None
+                MoreButton:
+                    text: "Insurance"
+                    background_normal: ".notforgit/svg/bluebutton.png"
+                MoreButton:
+                    text: "Documents"
+                    background_normal: ".notforgit/svg/bluebutton.png"
+                MoreButton:
+                    text: "Contacts"
+                    background_normal: ".notforgit/svg/bluebutton.png"
+                MoreButton:
+                    text: "Settings"
                     height: 50
                     background_normal: ".notforgit/svg/bluebutton.png"
-                Button:
-                    text: "btn2"
-                    size_hint: 1,None
-                    height: 50     
-                Button:
-                    text: "btn3"
-                    size_hint: 1,None
-                    height: 50  
-                Button:
-                    text: "btn4"
-                    size_hint: 1,None
-                    height: 50    
-        Button:
-            size_hint: (1,0.5)
-            text: "empty space"     
-        Button:
-            size_hint: (1,0.33)
-            text: "SPONSORS.png"
+                Widget:
+                # Dynamic height => fills the void. Else: attach to the bottom  
+        GridLayout:
+            rows:2
+            size_hint: 1,0.5
+            BoxLayout:
+                orientation: "horizontal"
+                Image:
+                    source: ".notforgit/sponsors/ccm.png"
+                Image:
+                    source: ".notforgit/sponsors/north-star.png"
+                Image:
+                    source: ".notforgit/sponsors/artex.png"
+            BoxLayout:
+                orientation: "horizontal"
+                Image:
+                    source: ".notforgit/sponsors/saint.png"
+                Image:
+                    source: ".notforgit/sponsors/murom-hockey.png"
+            
     
