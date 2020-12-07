@@ -8,6 +8,13 @@ from kivy.uix.label import Label
 from kivy.uix.layout import Layout
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.graphics import Rectangle
+#import sqlalchemy
+from sqlalchemy.orm import mapper
+from sqlalchemy import create_engine
+from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+#from sqlalchemy import create_engine
 #from kivy.core.window import Window
 #Window.size = (540,960)
 from kivy.config import Config
@@ -29,7 +36,28 @@ class Screen_more(Screen):
 class Background_white_gridlayout(GridLayout):
     pass
 
+#class Product(object):     Task separating style.
+#    def __init__(self,_maker,_model,_type):
+#        self.maker = _maker
+#        self.model = _model
+#        self.type = _type
+#    
+#    def __repr__(self):
+#        return "<Product('%s','%s','%s')>" % (self.maker, self.model, self.type)
+Base = declarative_base()  # ALARM ALARM ALARM ALARM ALARM ALARM
+class Product(Base):
+    __tablename__ = 'product'
+    maker = Column(String)
+    model = Column(String, primary_key=True)
+    type = Column(String)
 
+    def __init__(self,maker,model,type):
+        self.maker = maker
+        self.model = model
+        self.type = type
+
+    def __repr__(self):
+        return "<Product('%s','%s','%s')>" % (self.maker, self.model, self.type)
 
 
 class MultistrokeApp(App):        
@@ -37,7 +65,28 @@ class MultistrokeApp(App):
         self.manager = ScreenManager(transition=SlideTransition(
                                      duration=.01))
         
+        # MySQL via SqlAlchemy area. Task separating style.
+        #engine = create_engine('mysql://root:5533@localhost/computers')
+        #
+        #metadata = MetaData()
+        #products_table = Table('product', metadata,
+        #Column('maker',String),
+        #Column('model', String, primary_key=True),
+        #Column('type',String))
 
+        #mapper(Product, products_table)
+        # End of MySQL via SqkAkchemy area. Task separating style.
+
+        # MySQL via SqlAlchemy area. Declarative style
+        engine = create_engine('mysql://root:5533@localhost/computers')
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        #testProd = Product("maker1","model1","type1") # Add new product
+        #session.add(testProd)
+        #session.commit()
+        for prod in session.query(Product).order_by(Product.model):
+            print(prod)
+        # End of MySQL via SqlAlchemy area. Declarative style
 
         # Screen1
         self.manager.add_widget(Screen_news())
