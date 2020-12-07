@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.gesturesurface import GestureSurface
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
@@ -21,30 +22,8 @@ from kivy.config import Config
 Config.set('graphics','width', 540)
 Config.set('graphics','height', 960)
 
-class MainMenu(GridLayout):
-    pass
-class Screen_news(Screen):
-    pass
-class Screen_league(Screen):
-    pass
-class Screen_user(Screen):
-    pass
-class Screen_schedule(Screen):
-    pass
-class Screen_more(Screen):
-    pass
-class Background_white_gridlayout(GridLayout):
-    pass
 
-#class Product(object):     Task separating style.
-#    def __init__(self,_maker,_model,_type):
-#        self.maker = _maker
-#        self.model = _model
-#        self.type = _type
-#    
-#    def __repr__(self):
-#        return "<Product('%s','%s','%s')>" % (self.maker, self.model, self.type)
-Base = declarative_base()  # ALARM ALARM ALARM ALARM ALARM ALARM
+Base = declarative_base()  # ALARM ALARM ALARM ALARM ALARM ALARM TODO: TODO:
 class Product(Base):
     __tablename__ = 'product'
     maker = Column(String)
@@ -58,6 +37,51 @@ class Product(Base):
 
     def __repr__(self):
         return "<Product('%s','%s','%s')>" % (self.maker, self.model, self.type)
+
+class MainMenu(GridLayout):
+    pass
+class Screen_news(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        engine = create_engine('mysql://root:5533@localhost/computers')
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        
+        layout1 = AnchorLayout(anchor_x='center', anchor_y='top')
+        layout = BoxLayout(orientation="vertical")
+        layout1.add_widget(layout)
+        self.add_widget(layout1)
+        products = session.query(Product).all()
+        for prod in products:
+            widget = MyProductWidget(prod)
+            layout.add_widget(widget)
+        
+class Screen_league(Screen):
+    pass
+class Screen_user(Screen):
+    pass
+class Screen_schedule(Screen):
+    pass
+class Screen_more(Screen):
+    pass
+class Background_white_gridlayout(GridLayout):
+    pass
+
+class MyProductWidget(BoxLayout):
+    def __init__(self, product, **kwargs):
+        super(MyProductWidget, self).__init__(**kwargs)
+        self.add_widget(Label(text=product.maker))
+        self.add_widget(Label(text=product.model))
+        self.add_widget(Label(text=product.type))
+
+#class Product(object):     Task separating style.
+#    def __init__(self,_maker,_model,_type):
+#        self.maker = _maker
+#        self.model = _model
+#        self.type = _type
+#    
+#    def __repr__(self):
+#        return "<Product('%s','%s','%s')>" % (self.maker, self.model, self.type)
 
 
 class MultistrokeApp(App):        
@@ -78,19 +102,18 @@ class MultistrokeApp(App):
         # End of MySQL via SqkAkchemy area. Task separating style.
 
         # MySQL via SqlAlchemy area. Declarative style
-        engine = create_engine('mysql://root:5533@localhost/computers')
-        Session = sessionmaker(bind=engine)
-        session = Session()
+        #engine = create_engine('mysql://root:5533@localhost/computers')
+        #Session = sessionmaker(bind=engine)
+        #session = Session()
         #testProd = Product("maker1","model1","type1") # Add new product
         #session.add(testProd)
         #session.commit()
-        for prod in session.query(Product).order_by(Product.model):
-            print(prod)
         # End of MySQL via SqlAlchemy area. Declarative style
 
         # Screen1
-        self.manager.add_widget(Screen_news())
+        self.manager.add_widget(Screen_news(name="screen1"))
         self.Screen_news = Screen_news()
+        self.manager.current="screen1"
 
         # Screen2
         self.manager.add_widget(Screen_league())
