@@ -44,13 +44,14 @@ class Product(Base):
 
 class MainMenu(GridLayout):
     pass
+class NeckSpace(Label):
+    pass
 class Screen_news(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         engine = create_engine('mysql://root:5533@localhost/computers')
         Session = sessionmaker(bind=engine)
         session = Session()
-        
         layout1 = AnchorLayout(anchor_x='center', anchor_y='top')
         layout = BoxLayout(orientation="vertical")
         layout1.add_widget(layout)
@@ -140,6 +141,7 @@ class MultistrokeApp(App):
         self.Screen_more = Screen_more()
         
         layout = Background()
+        layout.add_widget(NeckSpace())
         layout.add_widget(self.manager)
         layout.add_widget(MainMenu())
         return layout

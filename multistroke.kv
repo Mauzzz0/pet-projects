@@ -18,7 +18,6 @@
     height: 50
     font_size: 20
 
-
 <Background>:
     cols: 1
     canvas:
@@ -29,6 +28,18 @@
             pos: self.pos
             size: self.size
 
+<NeckSpace@Label>:
+    pos_hint: {'center_x': 0.5}
+    height: 50
+    size_hint: 1,None
+    color: 0,0,0,1
+    text: "EMPTY SPACE FOR NECK. y: 50px"
+    canvas:
+        Color:
+            rgba: 1,1,1,0.1
+        Rectangle:
+            pos: self.pos
+            size: self.size
 
 
 <MainMenu>:
@@ -95,17 +106,11 @@
             anchor_y: 'top'
             anchor_x: 'center'
             BoxLayout:
-                size: root.size
+                #size: root.size
                 #size_hint: 1,None
                 #height: 270
                 spacing: 10
                 orientation: "vertical"
-                Label:
-                    pos_hint: {'center_x': 0.5}
-                    height: 50
-                    size_hint: 1,None
-                    color: 0,0,0,1
-                    text: "empty space for neck. y: 50px"
                 MoreButton:
                     text: "Insurance"
                     background_normal: ".notforgit/svg/bluebutton.png"
