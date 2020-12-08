@@ -9,6 +9,7 @@ from kivy.uix.label import Label
 from kivy.uix.layout import Layout
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.graphics import Rectangle
+from kivy.graphics import Color
 #import sqlalchemy
 from sqlalchemy.orm import mapper
 from sqlalchemy import create_engine
@@ -47,10 +48,10 @@ class Screen_news(Screen):
         Session = sessionmaker(bind=engine)
         session = Session()
         
-        layout1 = AnchorLayout(anchor_x='center', anchor_y='top')
+        #layout1 = AnchorLayout(anchor_x='center', anchor_y='top')
         layout = BoxLayout(orientation="vertical")
-        layout1.add_widget(layout)
-        self.add_widget(layout1)
+        #layout1.add_widget(layout)
+        self.add_widget(layout)
         products = session.query(Product).all()
         for prod in products:
             widget = MyProductWidget(prod)
@@ -70,9 +71,9 @@ class Background_white_gridlayout(GridLayout):
 class MyProductWidget(BoxLayout):
     def __init__(self, product, **kwargs):
         super(MyProductWidget, self).__init__(**kwargs)
-        self.add_widget(Label(text=product.maker))
-        self.add_widget(Label(text=product.model))
-        self.add_widget(Label(text=product.type))
+        self.add_widget(Label(text=product.maker, color=(1,1,1,1)))
+        self.add_widget(Label(text=product.model, color=(1,1,1,0.2)))
+        self.add_widget(Label(text=product.type, color=(1,1,1,0.5)))
 
 #class Product(object):     Task separating style.
 #    def __init__(self,_maker,_model,_type):
