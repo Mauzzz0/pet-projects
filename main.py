@@ -16,12 +16,15 @@ from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+#from kivy.core.window import Window
 #from sqlalchemy import create_engine
 #from kivy.core.window import Window
 #Window.size = (540,960)
 from kivy.config import Config
 Config.set('graphics','width', 540)
 Config.set('graphics','height', 960)
+#Window.size= (540,960)
+#Window.clearcolor = (1, 1, 1, 1)
 
 
 Base = declarative_base()  # ALARM ALARM ALARM ALARM ALARM ALARM TODO: TODO:
@@ -48,10 +51,10 @@ class Screen_news(Screen):
         Session = sessionmaker(bind=engine)
         session = Session()
         
-        #layout1 = AnchorLayout(anchor_x='center', anchor_y='top')
+        layout1 = AnchorLayout(anchor_x='center', anchor_y='top')
         layout = BoxLayout(orientation="vertical")
-        #layout1.add_widget(layout)
-        self.add_widget(layout)
+        layout1.add_widget(layout)
+        self.add_widget(layout1)
         products = session.query(Product).all()
         for prod in products:
             widget = MyProductWidget(prod)
@@ -65,14 +68,15 @@ class Screen_schedule(Screen):
     pass
 class Screen_more(Screen):
     pass
-class Background_white_gridlayout(GridLayout):
+class Background(GridLayout):
     pass
+
 
 class MyProductWidget(BoxLayout):
     def __init__(self, product, **kwargs):
         super(MyProductWidget, self).__init__(**kwargs)
         self.add_widget(Label(text=product.maker, color=(1,1,1,1)))
-        self.add_widget(Label(text=product.model, color=(1,1,1,0.2)))
+        self.add_widget(Label(text=product.model, color=(0,0,0,1)))
         self.add_widget(Label(text=product.type, color=(1,1,1,0.5)))
 
 #class Product(object):     Task separating style.
@@ -135,7 +139,7 @@ class MultistrokeApp(App):
         self.manager.add_widget(Screen_more())
         self.Screen_more = Screen_more()
         
-        layout = Background_white_gridlayout()
+        layout = Background()
         layout.add_widget(self.manager)
         layout.add_widget(MainMenu())
         return layout
