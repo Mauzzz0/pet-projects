@@ -1,9 +1,11 @@
 from kivy.app import App
+from kivy.app import runTouchApp
 from kivy.lang import Builder
 from kivy.uix.gesturesurface import GestureSurface
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.scrollview import ScrollView
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.layout import Layout
@@ -11,11 +13,11 @@ from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.graphics import Rectangle
 from kivy.graphics import Color
 #import sqlalchemy
-from sqlalchemy.orm import mapper
-from sqlalchemy import create_engine
-from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+#from sqlalchemy.orm import mapper
+#from sqlalchemy import create_engine
+#from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
+#from sqlalchemy.ext.declarative import declarative_base
+#from sqlalchemy.orm import sessionmaker
 #from kivy.core.window import Window
 #from sqlalchemy import create_engine
 #from kivy.core.window import Window
@@ -27,20 +29,20 @@ Config.set('graphics','height', 960)
 #Window.clearcolor = (1, 1, 1, 1)
 
 
-Base = declarative_base()  # ALARM ALARM ALARM ALARM ALARM ALARM TODO: TODO:
-class Product(Base):
-    __tablename__ = 'product'
-    maker = Column(String)
-    model = Column(String, primary_key=True)
-    type = Column(String)
+#Base = declarative_base()  # ALARM ALARM ALARM ALARM ALARM ALARM TODO: TODO:
+#class Product(Base):
+#    __tablename__ = 'product'
+#    maker = Column(String)
+#    model = Column(String, primary_key=True)
+#    type = Column(String)
 
-    def __init__(self,maker,model,type):
-        self.maker = maker
-        self.model = model
-        self.type = type
+#    def __init__(self,maker,model,type):
+#        self.maker = maker
+#        self.model = model
+#        self.type = type
 
-    def __repr__(self):
-        return "<Product('%s','%s','%s')>" % (self.maker, self.model, self.type)
+#    def __repr__(self):
+#        return "<Product('%s','%s','%s')>" % (self.maker, self.model, self.type)
 
 class MainMenu(GridLayout):
     pass
@@ -49,17 +51,23 @@ class NeckSpace(Label):
 class Screen_news(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        engine = create_engine('mysql://root:5533@localhost/computers')
-        Session = sessionmaker(bind=engine)
-        session = Session()
+        #engine = create_engine('mysql://root:5533@localhost/computers')
+        #Session = sessionmaker(bind=engine)
+        #session = Session()
+        #products = session.query(Product).all()
+        root = ScrollView(size_hint=(1, None), size=(540,960))
         layout1 = AnchorLayout(anchor_x='center', anchor_y='top')
-        layout = BoxLayout(orientation="vertical")
+        #layout = BoxLayout(orientation="vertical", size_hint=(1,None), row_force_default=True, row_default_height=40)
+        layout = GridLayout(cols=1,spacing=10, size_hint_y=None)
+        #layout.bind(minimum_height=layout.setter('height'))
         layout1.add_widget(layout)
         self.add_widget(layout1)
-        products = session.query(Product).all()
-        for prod in products:
-            widget = MyProductWidget(prod)
-            layout.add_widget(widget)
+        for i in range(100):
+            btn = Button(text=str(i), size_hint_y=None, height=40)
+            layout.add_widget(btn)
+        #for prod in products:
+        #    widget = MyProductWidget(prod)
+        #    layout.add_widget(widget)
         
 class Screen_league(Screen):
     pass
