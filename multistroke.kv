@@ -28,7 +28,7 @@
             pos: self.pos
             size: self.size
 
-<NeckSpace@Label>:
+<NeckSpace@Button>:
     pos_hint: {'center_x': 0.5}
     height: 50
     size_hint: 1,None
@@ -44,7 +44,7 @@
 
 <MainMenu>:
     rows: 1
-    size_hint: (1, 0.12)
+    size_hint: (1, None)
     #height: 50
     #spacing: 3
     #padding: 3
@@ -114,12 +114,15 @@
                 MoreButton:
                     text: "Insurance"
                     background_normal: ".notforgit/svg/bluebutton.png"
+                    on_press: root.OpenURL("https://rthl.ru/insurance")
                 MoreButton:
                     text: "Documents"
                     background_normal: ".notforgit/svg/bluebutton.png"
+                    on_press: root.OpenURL("https://rthl.ru/documents/")
                 MoreButton:
                     text: "Contacts"
                     background_normal: ".notforgit/svg/bluebutton.png"
+                    on_press: root.OpenURL("https://rthl.ru/league/contacts")
                 MoreButton:
                     text: "Settings"
                     height: 50
