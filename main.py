@@ -48,9 +48,11 @@ def echo(message):
 
     logger.info(f'</code>@{message.from_user.username}<code> ({message.chat.id}) used echo:\n\n%s', message.text)
     bot.send_message(message.chat.id, message.text)
-    file = message.document
-    bot.send_message(message.chat.id, file.file_name)
-    """Сюда отправку"""
+
+    #TODO: Каким-то образом получить файл из message, хотя бы вернуть его имя. Загрузить на диск.
+    #file = bot.get_file()
+    #bot.send_message(message.chat.id, file.file_name)
+
 
 if __name__ == '__main__':
     if os.environ.get("IS_PRODUCTION", "False") == "True":
