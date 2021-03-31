@@ -1,16 +1,57 @@
-# This is a sample Python script.
+#  Copyright (c) ChernV (@otter18), 2021.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import os
+import random
+
+from setup import bot, logger
+from webhook import app
+
+# --------------- dialog params -------------------
+dialog = {
+    'hello': {
+        'in': ['привет', 'hello', 'hi', 'privet', 'hey'],
+        'out': ['Приветствую', 'Здравствуйте', 'Привет!']
+    },
+    'how r u': {
+        'in': ['как дела', 'как ты', 'how are you', 'дела', 'how is it going'],
+        'out': ['Хорошо', 'Отлично', 'Good. And how are u?']
+    },
+    'name': {
+        'in': ['зовут', 'name', 'имя'],
+        'out': [
+            'Я telegram-template-bot',
+            'Я бот шаблон, но ты можешь звать меня в свой проект',
+            'Это секрет. Используй команду /help, чтобы узнать'
+        ]
+    }
+}
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+8 to toggle the breakpoint.
+# --------------- bot -------------------
+@bot.message_handler(commands=['help', 'start'])
+def say_welcome(message):
+    logger.info(f'</code>@{message.from_user.username}<code> ({message.chat.id}) used /start or /help')
+    bot.send_message(
+        message.chat.id,
+        '<b>Hello! This is a telegram bot template written by <a href="https://github.com/otter18">otter18</a></b>',
+        parse_mode='html'
+    )
 
 
-# Press the green button in the gutter to run the script.
+@bot.message_handler(func=lambda message: True)
+def echo(message):
+    for t, resp in dialog.items():
+        if sum([e in message.text.lower() for e in resp['in']]):
+            logger.info(f'</code>@{message.from_user.username}<code> ({message.chat.id}) used {t}:\n\n%s', message.text)
+            bot.send_message(message.chat.id, random.choice(resp['out']))
+            return
+
+    logger.info(f'</code>@{message.from_user.username}<code> ({message.chat.id}) used echo:\n\n%s', message.text)
+    bot.send_message(message.chat.id, message.text)
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    if os.environ.get("IS_PRODUCTION", "False") == "True":
+        app.run()
+    else:
+        bot.infinity_polling()
