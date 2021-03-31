@@ -2,7 +2,7 @@ gunicorn
 Flask
 werkzeug
 sslcrypto
-pyTelegramBotAPI
+pyTelegramBotAPI==3.7.6
 datetime
 tg-logger
 pytz
