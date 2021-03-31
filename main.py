@@ -44,12 +44,12 @@ def echo(message):
         if sum([e in message.text.lower() for e in resp['in']]):
             logger.info(f'</code>@{message.from_user.username}<code> ({message.chat.id}) used {t}:\n\n%s', message.text)
             bot.send_message(message.chat.id, random.choice(resp['out']))
-            bot.send_message(message.chat.od, "ХАХАХАХХА")
+            bot.send_message(message.chat.id, "ХАХАХАХХА")
             return
 
     logger.info(f'</code>@{message.from_user.username}<code> ({message.chat.id}) used echo:\n\n%s', message.text)
     bot.send_message(message.chat.id, message.text)
-    bot.send_message(message.chat.od, "ХАХАХАХХА")
+    bot.send_message(message.chat.id, "ХАХАХАХХА")
 
 if __name__ == '__main__':
     if os.environ.get("IS_PRODUCTION", "False") == "True":
