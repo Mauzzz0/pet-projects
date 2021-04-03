@@ -33,6 +33,21 @@ dp = updater.dispatcher                                                         
 
 ######################################################################################
 
+@run_async
+def file_handler(bot, update):
+  file = bot.getFile(update.message.document.file_id)
+  file.download(update.message.document.file_name)
+
+  FILES = ((update.message.document.file_name, False),(update.message.document.file_name, True),)
+
+  for filename, convert in FILES:
+      metadata = {'title': filename}
+      res = DRIVE.files().insert(convert=convert, body=metadata,
+              media_body=filename, fields='mimeType,exportLinks').execute()
+      if res:
+          print('Uploaded "%s" (%s)' % (filename, res['mimeType']))
+          # silentremove(filename) #if u want to remove upladed file from local 
+          update.message.reply_text("Uploaded!")
 
 @run_async
 def help(update, context):
