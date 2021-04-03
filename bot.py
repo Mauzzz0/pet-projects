@@ -48,26 +48,26 @@ def start(update, context):
 
 def file_handler(update, context):
   """handles the uploaded files"""
-
+  context.bot.send_message(chat_id=update.effective_chat.id, text="step1")
   file = context.bot.getFile(update.message.document.file_id)
   file.download(update.message.document.file_name)
-
+  context.bot.send_message(chat_id=update.effective_chat.id, text="step2")
   doc = update.message.document
 
   service = build('drive', 'v3', credentials=getCreds(),cache_discovery=False)
   filename = doc.file_name
-
+  context.bot.send_message(chat_id=update.effective_chat.id, text="step3")
   metadata = {'name': filename}
   media = MediaFileUpload(filename, chunksize=1024 * 1024, mimetype=doc.mime_type,  resumable=True)
   request = service.files().create(body=metadata,
                                 media_body=media)
-
+  context.bot.send_message(chat_id=update.effective_chat.id, text="step4")
   response = None
   while response is None:
     status, response = request.next_chunk()
     if status:
        print( "Uploaded %d%%." % int(status.progress() * 100))
-
+  context.bot.send_message(chat_id=update.effective_chat.id, text="step5")
   context.bot.send_message(chat_id=update.effective_chat.id, text="✅ File uploaded!")
 
 
