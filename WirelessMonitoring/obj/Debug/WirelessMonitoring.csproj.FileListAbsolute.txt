@@ -1,0 +1,15 @@
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\bin\Debug\WirelessMonitoring.exe.config
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\bin\Debug\WirelessMonitoring.exe
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\bin\Debug\WirelessMonitoring.pdb
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring.csprojAssemblyReference.cache
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\MainWindow.g.cs
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\App.g.cs
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring_MarkupCompile.cache
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring_MarkupCompile.lref
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\MainWindow.baml
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring.g.resources
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring.Properties.Resources.resources
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring.csproj.GenerateResource.cache
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring.csproj.CoreCompileInputs.cache
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring.exe
+C:\Users\rusla\source\repos\WirelessMonitoring\WirelessMonitoring\obj\Debug\WirelessMonitoring.pdb
