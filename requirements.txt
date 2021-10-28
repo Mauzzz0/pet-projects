@@ -1,0 +1,8 @@
+gunicorn
+Flask
+werkzeug
+sslcrypto
+pyTelegramBotAPI==3.7.6
+datetime
+tg-logger
+pytz
