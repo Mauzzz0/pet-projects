@@ -1,0 +1,61 @@
+#:kivy 1.11.1
+GridLayout:
+    rows:2
+    NeckSpace:
+        
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        BoxLayout:
+            orientation: "vertical"
+            Widget:
+
+            LoginGrid:
+                Image:
+                    source: "../.notforgit/200x200.png"
+                    size: 50,50
+                    size_hint: None, None
+                Button:
+                    size_hint: (0.5,None)
+                    pos_hint: {'center_x': 0.5}
+                    height: 50
+                    text: "Username"
+            LoginGrid:
+                Image:
+                    source: "../.notforgit/200x200.png"
+                    size: 50,50
+                    size_hint: None, None
+                Button:
+                    size_hint: (0.5,None)
+                    pos_hint: {'center_x': 0.5}
+                    height: 50
+                    text: "Password"
+            LoginGrid:
+                Image:
+                    source: "../.notforgit/200x200.png"
+                    size: 50,50
+                    size_hint: None, None
+                Button:
+                    size_hint: (0.5,None)
+                    pos_hint: {'center_x': 0.5}
+                    height: 50
+                    text: "btn3"
+            Widget:
+
+<NeckSpace@Label>:
+    pos_hint: {'center_x': 0.5}
+    height: 50
+    size_hint: 1,None
+    color: 0,1,1,1
+    text: "EMPTY SPACE FOR NECK. y: 50px"
+    canvas:
+        Color:
+            rgba: 1,1,1,0.1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<LoginGrid@GridLayout>:
+    cols:2
+    pos_hint: {'center_x': 0.5}
+    size_hint: (0.6,None)

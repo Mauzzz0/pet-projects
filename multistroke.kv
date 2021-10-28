@@ -1,0 +1,150 @@
+#:kivy 1.11.1
+<MainButton@ToggleButton>:
+    group: "mainmenu"
+    canvas.before:
+        Color:
+            #rgba: 4,14,51,1 # real
+            rgb: (0.01,0.05,0.2) # real divided by 255
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    on_press:
+        if self.state == 'normal': self.state = 'down'
+
+<MoreButton@Button>:
+    group: "moregroup"
+    pos_hint: {'center_x': 0.5}
+    size_hint: 0.9,None
+    height: 50
+    font_size: 20
+
+<Background>:
+    cols: 1
+    canvas:
+        #Color:
+        #    rgba: 1,1,1,0.4
+        Rectangle:
+            source: ".notforgit/background.jpg"
+            pos: self.pos
+            size: self.size
+
+<NeckSpace@Button>:
+    pos_hint: {'center_x': 0.5}
+    height: 50
+    size_hint: 1,None
+    color: 0,0,0,1
+    text: "EMPTY SPACE FOR NECK. y: 50px"
+    canvas:
+        Color:
+            rgba: 1,1,1,0.1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<MainMenu>:
+    rows: 1
+    size_hint: (1, None)
+    #height: 50
+    #spacing: 3
+    #padding: 3
+    MainButton:
+        id: btn1
+        background_normal: ".notforgit/svg/news.png"
+        background_down: ".notforgit/svg/news-1.png"
+        on_press:
+            app.manager.current = 'screen1'
+    MainButton:
+        id: btn2
+        background_normal: ".notforgit/svg/league.png"
+        background_down: ".notforgit/svg/league-1.png"
+        on_press:
+            app.manager.current = 'screen2'
+    MainButton:
+        id: btn3
+        background_normal: ".notforgit/svg/user.png"
+        background_down: ".notforgit/svg/user-1.png"
+        on_press:
+            app.manager.current = 'screen3'
+    MainButton:
+        id: btn4
+        background_normal: ".notforgit/svg/schedule.png"
+        background_down: ".notforgit/svg/schedule-1.png"
+        on_press:
+            app.manager.current = 'screen4'
+    MainButton:
+        id: btn5
+        background_normal: ".notforgit/svg/more.png"
+        background_down: ".notforgit/svg/more-1.png"
+        on_press:
+            app.manager.current = 'screen5'
+
+
+
+<Screen_league>:
+    name: "screen2"
+    Label:
+        color: 0,0,0,1
+        text: "LABEL SCREEN2 in .kv"
+<Screen_user>:
+    name: "screen3"
+    Label:
+        color: 0,0,0,1
+        text: "LABEL SCREEN3 in .kv"
+<Screen_schedule>:
+    name: "screen4"
+    Label:
+        color: 0,0,0,1
+        text: "LABEL SCREEN4 in .kv"
+
+
+<Screen_more>:
+    name: "screen5"
+    GridLayout:
+        rows: 2
+        AnchorLayout:
+            anchor_y: 'top'
+            anchor_x: 'center'
+            BoxLayout:
+                #size: root.size
+                #size_hint: 1,None
+                #height: 270
+                spacing: 10
+                orientation: "vertical"
+                MoreButton:
+                    text: "Insurance"
+                    background_normal: ".notforgit/svg/bluebutton.png"
+                    on_press: root.OpenURL("https://rthl.ru/insurance")
+                MoreButton:
+                    text: "Documents"
+                    background_normal: ".notforgit/svg/bluebutton.png"
+                    on_press: root.OpenURL("https://rthl.ru/documents/")
+                MoreButton:
+                    text: "Contacts"
+                    background_normal: ".notforgit/svg/bluebutton.png"
+                    on_press: root.OpenURL("https://rthl.ru/league/contacts")
+                MoreButton:
+                    text: "Settings"
+                    height: 50
+                    background_normal: ".notforgit/svg/bluebutton.png"
+                Widget:
+                # Dynamic height => fills the void. Else: attach to the bottom  
+        GridLayout:
+            rows:2
+            size_hint: 1,0.5
+            BoxLayout:
+                orientation: "horizontal"
+                Image:
+                    source: ".notforgit/sponsors/ccm.png"
+                Image:
+                    source: ".notforgit/sponsors/north-star.png"
+                Image:
+                    source: ".notforgit/sponsors/artex.png"
+            BoxLayout:
+                orientation: "horizontal"
+                Image:
+                    source: ".notforgit/sponsors/saint.png"
+                Image:
+                    source: ".notforgit/sponsors/murom-hockey.png"
+            
+    
